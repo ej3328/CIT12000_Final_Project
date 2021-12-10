@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Final Project</title>
+</head>
+<body>
+
+<style>
+    body {
+        margin: 0px;
+    }
+
+    nav {
+        background-color: darkred;
+        padding: 20px;
+
+    }
+</style>
+
+<nav class="nav_bar">
+    <a href="view.html"><button>Grade View</button></a>
+    <a href="index.html"><button>Add Grade</button></a>
+</nav>
+
+
+
+<div class="heading">
+    <h1>Add student grade:</h1>
+</div>
+<form name="myform" action="view.html">
+    <input type="text" require minlength="2" placeholder="Enter name:" name="student" id="student" />
+    <input type="text" placeholder="Enter grade 0-100:" name="grade" id="grade" />
+
+    <input type="submit" value="Submit" onclick="getData()" >
+</form>
+
+
+<script>
+
+    var list = [];
+
+    function getData(){
+        var student = document.getElementById("student").value;
+        var grade = document.getElementById("grade").value;
+        var grade_check = Number(grade);
+        var checker = isNaN(grade_check);
+
+        if (student == "" || student.length < 2){
+            alert("You didn't type in a valid name.");
+            event.preventDefault();
+        }
+        if (grade == "" || checker == true || grade > 100 || grade < 0){
+            alert("You didn't type in a valid number.");
+            event.preventDefault();
+        }
+        else{
+            list.push(student + " " + grade);
+            localStorage.setItem("values", list);
+
+        }
+
+
+    }
+
+
+
+
+
+</script>
+</body>
+</html>

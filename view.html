@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Final Project</title>
+</head>
+<body>
+
+<style>
+    body {
+        margin: 0px;
+    }
+
+    nav {
+        background-color: darkred;
+        padding: 20px;
+    }
+</style>
+
+<nav class="nav_bar">
+    <a href="View.html"><button>Grade View</button></a>
+    <a href="index.html"><button>Add Grade</button></a>
+</nav>
+
+
+<div class="box">
+    <h1>Student Grade(s):</h1>
+    <div id="data"></div>
+</div>
+
+
+<script>
+    document.getElementById("data").innerHTML=localStorage.getItem("values");
+</script>
+
+</body>
+</html>
